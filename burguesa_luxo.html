@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Burguesa Luxo | Hambúrgueria Premium</title>
+<style>
+:root{
+  --gold:#dca72a; --gold2:#f4c95d; --black:#070707; --card:#111;
+  --text:#f5f1e8; --muted:#b9b1a4;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Arial,Helvetica,sans-serif;background:var(--black);color:var(--text)}
+header{position:sticky;top:0;z-index:10;background:rgba(7,7,7,.96);border-bottom:1px solid #282117}
+nav{max-width:1150px;margin:auto;padding:16px 22px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.logo{font-family:Georgia,serif;font-weight:900;font-size:25px;letter-spacing:2px;line-height:.8}
+.logo span{display:block;color:var(--gold);font-size:16px;text-align:center;letter-spacing:7px;margin-top:8px}
+.links{display:flex;gap:24px;flex-wrap:wrap;justify-content:center}
+.links a{color:var(--text);text-decoration:none;font-size:13px;font-weight:bold}
+.links a:hover{color:var(--gold)}
+.btn{background:var(--gold);color:#111;border:0;padding:13px 20px;border-radius:8px;font-weight:900;text-decoration:none;display:inline-block;cursor:pointer}
+.btn.outline{background:transparent;color:var(--gold2);border:1px solid var(--gold)}
+.hero{min-height:620px;display:flex;align-items:center;overflow:hidden;background:
+radial-gradient(circle at 75% 40%,#5d2707 0%,#281206 18%,transparent 42%),
+linear-gradient(90deg,#080808 38%,rgba(8,8,8,.65),rgba(8,8,8,.08))}
+.hero-inner{max-width:1150px;width:100%;margin:auto;padding:70px 22px;position:relative}
+.kicker{color:var(--gold2);font-weight:bold;letter-spacing:2px;font-size:13px}
+h1{font-size:clamp(50px,8vw,96px);line-height:.88;max-width:620px;margin:18px 0;font-family:Impact,Arial Black,sans-serif;letter-spacing:2px}
+h1 em{color:var(--gold);font-style:normal}
+.hero p{color:#ddd;max-width:500px;line-height:1.7;font-size:17px}
+.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+.burger-art{position:absolute;right:5%;top:50%;transform:translateY(-50%);font-size:clamp(220px,35vw,500px);filter:drop-shadow(0 20px 35px #000);line-height:1}
+.features{display:flex;gap:30px;flex-wrap:wrap;margin-top:40px;color:var(--gold2);font-size:13px;font-weight:bold}
+.features span{color:var(--muted);margin-left:6px}
+section{padding:75px 22px}
+.container{max-width:1150px;margin:auto}
+.section-title{text-align:center;font-family:Impact,Arial Black,sans-serif;font-size:42px;letter-spacing:1px;margin-bottom:35px}
+.section-title b{color:var(--gold);font-weight:inherit}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.card{background:linear-gradient(145deg,#151515,#0d0d0d);border:1px solid #2c2c2c;border-radius:14px;padding:18px;transition:.2s}
+.card:hover{transform:translateY(-5px);border-color:#76520c}
+.food{font-size:90px;text-align:center;filter:drop-shadow(0 8px 10px #000)}
+.card h3{font-size:18px;margin:10px 0}
+.card p{font-size:13px;color:var(--muted);line-height:1.6;min-height:60px}
+.price{color:var(--gold2);font-size:20px;font-weight:bold;margin-top:18px}
+.order{display:flex;justify-content:space-between;align-items:center;margin-top:15px}
+.small-btn{padding:9px 13px;border:1px solid var(--gold);background:transparent;color:var(--gold2);border-radius:7px;font-weight:bold;cursor:pointer}
+.combos{background:#0c0c0c;border-top:1px solid #221c12;border-bottom:1px solid #221c12}
+.combo-grid{display:grid;grid-template-columns:1.1fr repeat(3,1fr);gap:16px}
+.combo-intro{padding:28px;background:linear-gradient(145deg,#18130c,#0e0e0e);border-radius:14px;border:1px solid #3a2b0c}
+.combo-intro h2{font-size:38px;margin:10px 0;color:var(--gold)}
+.combo{padding:22px;border:1px solid #2b2b2b;border-radius:14px;background:#111;min-height:230px}
+.combo .emoji{font-size:70px;text-align:center;margin-top:20px}
+.benefits{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}
+.benefit{padding:20px;text-align:center;border:1px solid #2a2a2a;border-radius:12px;background:#101010}
+.benefit div{font-size:32px}.benefit h3{margin:10px 0;color:var(--gold2);font-size:15px}.benefit p{font-size:12px;color:var(--muted)}
+footer{padding:45px 22px;background:#050505;border-top:1px solid #251d10}
+.footer{max-width:1150px;margin:auto;display:grid;grid-template-columns:2fr 1fr 1.2fr;gap:30px}
+.footer p,.footer li{color:var(--muted);font-size:13px;line-height:1.8;list-style:none}
+.footer h3{color:var(--gold);margin-bottom:10px}
+.notice{position:fixed;bottom:0;left:0;right:0;background:#18130b;border-top:1px solid var(--gold);padding:10px 20px;display:flex;justify-content:center;gap:25px;align-items:center;z-index:20;font-size:13px;font-weight:bold;color:var(--gold2)}
+@media(max-width:900px){.burger-art{opacity:.25;right:-8%}.grid{grid-template-columns:repeat(2,1fr)}.combo-grid{grid-template-columns:1fr 1fr}.combo-intro{grid-column:span 2}.benefits{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.links{display:none}h1{font-size:58px}.grid,.combo-grid,.benefits,.footer{grid-template-columns:1fr}.combo-intro{grid-column:auto}.hero{min-height:580px}.burger-art{font-size:300px;right:-25%;top:58%}.notice{font-size:11px;gap:10px}.notice .btn{padding:9px 12px}}
+</style>
+</head>
+<body>
+<header>
+  <nav>
+    <div class="logo">♛ BURGUESA<span>LUXO</span></div>
+    <div class="links">
+      <a href="#inicio">INÍCIO</a><a href="#cardapio">CARDÁPIO</a><a href="#combos">COMBOS</a><a href="#sobre">SOBRE NÓS</a><a href="#contato">CONTATO</a>
+    </div>
+    <a class="btn" href="#cardapio">PEDIR AGORA</a>
+  </nav>
+</header>
+
+<main>
+<section class="hero" id="inicio">
+  <div class="hero-inner">
+    <div class="kicker">★ HAMBÚRGUERES PREMIUM</div>
+    <h1>SABOR QUE É <em>PURO LUXO!</em></h1>
+    <p>Ingredientes selecionados, carne 100% artesanal e muito sabor em cada mordida.</p>
+    <div class="actions">
+      <a class="btn" href="#cardapio">🛍 PEDIR AGORA</a>
+      <a class="btn outline" href="#contato">💬 PELO WHATSAPP</a>
+    </div>
+    <div class="features">🍔 <span>CARNE 100% ARTESANAL</span> 🍟 <span>BATATA CROCANTE</span> 🛵 <span>ENTREGA RÁPIDA</span></div>
+    <div class="burger-art">🍔</div>
+  </div>
+</section>
+
+<section id="cardapio">
+<div class="container">
+  <h2 class="section-title">NOSSOS <b>DESTAQUES</b></h2>
+  <div class="grid">
+    <article class="card"><div class="food">🍔</div><h3>♛ Burguesa Luxo</h3><p>180g de carne, cheddar cremoso, bacon e cebola caramelizada.</p><div class="order"><span class="price">R$ 32,90</span><button class="small-btn" onclick="pedir('Burguesa Luxo')">PEDIR</button></div></article>
+    <article class="card"><div class="food">🥓🍔</div><h3>♛ Cheddar Bacon</h3><p>Pão brioche, carne 180g, cheddar, bacon crocante e molho da casa.</p><div class="order"><span class="price">R$ 29,90</span><button class="small-btn" onclick="pedir('Cheddar Bacon')">PEDIR</button></div></article>
+    <article class="card"><div class="food">🥬🍔</div><h3>Clássico Luxo</h3><p>Pão brioche, carne 180g, queijo, alface, tomate e molho especial.</p><div class="order"><span class="price">R$ 28,90</span><button class="small-btn" onclick="pedir('Clássico Luxo')">PEDIR</button></div></article>
+    <article class="card"><div class="food">🧅🍔</div><h3>♛ Onion Burger</h3><p>Pão brioche, carne 180g, cheddar, onion rings e molho barbecue.</p><div class="order"><span class="price">R$ 30,90</span><button class="small-btn" onclick="pedir('Onion Burger')">PEDIR</button></div></article>
+  </div>
+</div>
+</section>
+
+<section class="combos" id="combos">
+<div class="container">
+<div class="combo-grid">
+  <div class="combo-intro"><div class="kicker">♛ COMBOS</div><h2>IRRESISTÍVEIS</h2><p>Mais sabor, mais economia e a experiência completa!</p><br><a class="btn" href="#cardapio">VER CARDÁPIO</a></div>
+  <div class="combo"><h3>COMBO SIMPLES</h3><p>1 Burger + Batata + Refrigerante lata</p><div class="price">R$ 34,90</div><div class="emoji">🍔🍟🥤</div></div>
+  <div class="combo"><h3>COMBO DUPLO</h3><p>2 Burgers + Batata + 2 Refrigerantes</p><div class="price">R$ 59,90</div><div class="emoji">🍔🍔🍟🥤</div></div>
+  <div class="combo"><h3>COMBO FAMÍLIA</h3><p>3 Burgers + Batata Grande + 2 Refrigerantes</p><div class="price">R$ 89,90</div><div class="emoji">🍔🍔🍔🍟</div></div>
+</div>
+</div>
+</section>
+
+<section id="sobre">
+<div class="container">
+<h2 class="section-title">EXPERIÊNCIA <b>BURGUESA LUXO</b></h2>
+<div class="benefits">
+<div class="benefit"><div>🏅</div><h3>QUALIDADE PREMIUM</h3><p>Ingredientes selecionados e muito sabor.</p></div>
+<div class="benefit"><div>🛵</div><h3>ENTREGA RÁPIDA</h3><p>Seu pedido chega com rapidez e segurança.</p></div>
+<div class="benefit"><div>💳</div><h3>PAGAMENTO SEGURO</h3><p>Aceitamos Pix, cartão e dinheiro.</p></div>
+<div class="benefit"><div>🎧</div><h3>ATENDIMENTO TOP</h3><p>Estamos sempre prontos para atender você.</p></div>
+</div>
+</div>
+</section>
+</main>
+
+<footer id="contato">
+<div class="footer">
+<div><div class="logo">♛ BURGUESA<span>LUXO</span></div><br><p>Na Burguesa Luxo, cada detalhe é pensado para proporcionar a melhor experiência em hambúrgueres artesanais premium.</p></div>
+<div><h3>LINKS RÁPIDOS</h3><ul><li>Início</li><li>Cardápio</li><li>Combos</li><li>Sobre nós</li></ul></div>
+<div><h3>INFORMAÇÕES</h3><p>🕒 Seg a Dom • 18h às 23h45</p><p>📱 WhatsApp: (00) 00000-0000</p><p>📍 Sua cidade - MG</p></div>
+</div>
+</footer>
+
+<div class="notice">🛵 FRETE GRÁTIS PARA COMPRAS ACIMA DE R$ 60,00 <a class="btn" href="#cardapio">PEDIR AGORA</a></div>
+
+<script>
+function pedir(item){
+  alert("Você escolheu: " + item + ".\\nEm uma versão publicada, este botão pode abrir o WhatsApp ou um carrinho de compras.");
+}
+</script>
+</body>
+</html>
